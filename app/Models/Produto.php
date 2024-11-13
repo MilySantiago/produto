@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Produto extends Model {
     use SoftDeletes, Timestamp;
+    protected $guarded = ['id'];
     protected $table = 'produto';
 }
