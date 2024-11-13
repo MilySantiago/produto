@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
-class ProdutoController extends Controller
+class ProdutosController extends Controller
 {
     public function index()
     {
+        $produtos= Produto::paginate(10);
+        return view('produtos.index', compact('produtos'));
+        
         
     }
 
    
     public function create()
     {
+       
+        return view('create.index', compact('produtos'));
     }
 
     public function store(Request $request)
@@ -30,6 +36,7 @@ class ProdutoController extends Controller
   
     public function edit(string $id)
     {
+        return view('create.index', compact('produtos'));
       
     }
 
